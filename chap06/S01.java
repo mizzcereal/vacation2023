@@ -68,6 +68,8 @@ public class S01 {
         Cat cat3 = new Cat();
 
         cat.cry();
+        cat2.cry();
+        cat3.cry();
 
     }
 }
