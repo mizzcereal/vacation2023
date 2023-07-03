@@ -56,6 +56,7 @@ public class S03 {
         human.moveLeft();
         human.moveRight();
         human.moveRight();
+        human.moveLeft();
         human.elikcer(5);
 
         System.out.println(human.dong());
