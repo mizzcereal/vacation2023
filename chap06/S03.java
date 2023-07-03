@@ -38,6 +38,11 @@ class Human{
 
     public void elikcer(int food){
         this.hp = this.hp + food;
+        if(this.hp + food > 100){
+            this.hp = 100;
+            System.out.println("체력이 가득 찼습니다.");
+            return;
+        }
         System.out.println("엘릭서를 먹어 나의 체력이" + hp + "로 되었습니다.");
     }
 
@@ -57,7 +62,8 @@ public class S03 {
         human.moveRight();
         human.moveRight();
         human.moveLeft();
-        human.elikcer(5);
+        human.elikcer(40);
+        System.out.println(human.hp);
 
         System.out.println(human.dong());
     }   
