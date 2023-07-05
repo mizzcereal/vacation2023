@@ -47,13 +47,13 @@ public class S01 {
         String bird3 = "독수리";
         String bird4 = new String("갈매기");
         String bird5 = new String("갈매기");
-        String 드레이븐 = "1557";
+
 
         System.out.println("bird1 == bird2 : " + (bird1 == bird2));
         System.out.println("bird3 == \"독수리\" : " + (bird3 == "독수리"));
         System.out.println("bird3 == \"독수리\" : " + (bird3 == "독수리"));
         System.out.println("bird4 == bird5 : " + (bird4 == bird5));
-        System.out.println("왜이렇게 빨리끝내나요 IG :" + (드레이븐 == "1557"));
+
 
         // 객체끼리 ==을 사용하면 주소를 비교한다.
         // 객체끼리 equals를 사용하면 주소를 비교해보고 false면
