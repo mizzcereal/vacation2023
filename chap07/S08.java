@@ -1,6 +1,7 @@
 package chap07;
 
-// 인터페이스는 '기능'
+// 인터페이스는 '기능'을 의미한다
+// 인터페이스는 여러 클래스에 적용할 수 있다.
 interface 입 {
     void cry();
 }
@@ -13,6 +14,7 @@ interface 날개 {
     void fly();
 }
 
+// 인터 페이스 들이 모이면 종족의 특성이 될 수 있다.
 abstract class 사람 implements 입, 눈 {
 
 }
@@ -54,7 +56,7 @@ class 천사 extends 사람 implements 날개 {
 
 }
 
-class 직박구리 extends 새 implements 입, 눈, 날개 {
+class 직박구리 extends 새 {
 
     @Override
     public void cry() {
