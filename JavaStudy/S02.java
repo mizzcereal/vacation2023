@@ -5,44 +5,62 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class S02 {
     public static void main(String[] args) throws SQLException {
+        // try 밖에서도 쓸수 있게 선언만 해둠
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             // db 연결 주소
             String url = "jdbc:mariadb://localhost:3307/hr";
             // db 연결
             connection = DriverManager.getConnection(url, "root", "1234");
             // 쿼리문 준비
-            String sql = "select first_name from employees where employee_id = ?";
+            String sql = "select * from employees where salary > 10000";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, 100);
             // 쿼리문 실행
             resultSet = preparedStatement.executeQuery();
-
-            if(resultSet.next()){
-                System.out.println(resultSet.getString("first_name"));
+            // 결과값 확인
+            List<Emp> list = new ArrayList<>();
+            while (resultSet.next()) {
+                Emp emp = new Emp(
+                        resultSet.getInt("employee_id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getInt("salary"));
+                list.add(emp);
             }
+            System.out.println(list);
 
-        }catch(Exception e) {
+            // if(resultSet.next()){
+            // Emp emp = new Emp(
+            // resultSet.getInt("employee_id"),
+            // resultSet.getString("first_name"),
+            // resultSet.getInt("salary")
+            // );
+
+            // System.out.println(emp);
+            // }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }finally {
-            // connection은 무조건 닫아줘야 하지만 null이 아닌 값으로..
-            // 다른 것도 마찬가지
-            if(connection != null) {
+        } finally {
+            // connection은 무조건 닫아줘야 한다
+            // null 체크
+            if (connection != null) {
                 connection.close();
             }
-            if(preparedStatement != null){
+            if (preparedStatement != null) {
                 preparedStatement.close();
             }
-            if(resultSet != null){
+            if (resultSet != null) {
                 resultSet.close();
             }
         }
+
     }
 }
