@@ -1,22 +1,22 @@
-package chap11;
+// package chap11;
 
-import java.util.LinkedList;
-import java.util.Queue;
+// import java.util.LinkedList;
+// import java.util.Queue;
 
-public class S06 {
-    public static void main(String[] args) {
+// public class S06 {
+//     public static void main(String[] args) {
         
-        Queue<String> queue = new LinkedList<String>();
+//         Queue<String> queue = new LinkedList<String>();
 
-        queue.add("사과");
-        queue.add("바나나");
-        queue.add("멜론");
+//         queue.add("사과");
+//         queue.add("바나나");
+//         queue.add("멜론");
 
-        System.out.println(queue);
+//         System.out.println(queue);
 
-        queue.poll();
+//         queue.poll();
 
-        System.out.println(queue);
+//         System.out.println(queue);
 
-    }
-}
+//     }
+// }
